@@ -38,6 +38,9 @@ function newCard() {
   sum += newCard; //adding a number to an existing variable
   //sumEl.textContent = `Sum: ${sum}`;
   // cardsEl.textContent = `Cards: ${firstCard} ${secondCard} ${newCard}`;
+  //Push new card to the cards array
+  cards.push(newCard);
+  console.log(cards);
   renderGame();
 }
 newBtn.addEventListener("click", newCard);
