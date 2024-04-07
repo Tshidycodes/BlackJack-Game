@@ -10,13 +10,16 @@ let messageEl = document.querySelector("#message-el");
 let startBtn = document.querySelector("#start-btn");
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.querySelector("#cards-el");
+
 function startGame() {
   renderGame();
 }
 function renderGame() {
+  cardsEl.textContent = `Cards: `;
+  for (let i = 0; i < cards.length; i++) {
+    cardsEl.textContent += cards[i] + " ";
+  }
   sumEl.textContent = `Sum: ${sum}`;
-  cardsEl.textContent = `Cards: ${cards[0]} ${cards[1]}`;
-
   if (sum <= 20) {
     message = `Do you want to draw a new card?`;
   } else if (sum === 21) {
