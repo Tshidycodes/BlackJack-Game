@@ -14,7 +14,14 @@ let cardsEl = document.querySelector("#cards-el");
 
 function getRandomCard() {
   let randomNumber = Math.floor(Math.random() * 13) + 1;
-  return randomNumber;
+  if (randomNumber === 1) {
+    //Ace card == 11
+    return 11;
+  } else if (randomNumber > 10) {
+    return 10; //QKJ cards = 10
+  } else {
+    return randomNumber;
+  }
 }
 function startGame() {
   renderGame();
