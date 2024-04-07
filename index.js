@@ -1,5 +1,6 @@
-﻿let firstCard = 10;
-let secondCard = 11;
+﻿//in Blackjack ace is 1, J = 11, Q = 12, K = 13
+let firstCard = getRandomCard();
+let secondCard = getRandomCard();
 let cards = [firstCard, secondCard]; //cards array - ordered list of items
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
@@ -11,6 +12,10 @@ let startBtn = document.querySelector("#start-btn");
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.querySelector("#cards-el");
 
+function getRandomCard() {
+  let randomNumber = Math.floor(Math.random() * 13) + 1;
+  return randomNumber;
+}
 function startGame() {
   renderGame();
 }
@@ -37,10 +42,8 @@ startBtn.addEventListener("click", startGame);
 let newBtn = document.querySelector("#new-btn");
 
 function newCard() {
-  let newCard = 6;
+  let newCard = getRandomCard();
   sum += newCard; //adding a number to an existing variable
-  //sumEl.textContent = `Sum: ${sum}`;
-  // cardsEl.textContent = `Cards: ${firstCard} ${secondCard} ${newCard}`;
   //Push new card to the cards array
   cards.push(newCard);
   console.log(cards);
