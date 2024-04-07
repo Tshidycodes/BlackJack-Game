@@ -53,11 +53,16 @@ startBtn.addEventListener("click", startGame);
 let newBtn = document.querySelector("#new-btn");
 
 function newCard() {
-  let newCard = getRandomCard();
-  sum += newCard; //adding a number to an existing variable
-  //Push new card to the cards array
-  cards.push(newCard);
-  console.log(cards);
-  renderGame();
+  //Shoudn't be able to draw cards when isAlive = false
+  //Should'nt be allowed to start the game with one card
+  //Only allow the player to get a new card if she isAlive and does not have BlackJack
+  if (isAlive === true && hasBlackJack === false) {
+    let newCard = getRandomCard();
+    sum += newCard; //adding a number to an existing variable
+    //Push new card to the cards array
+    cards.push(newCard);
+    console.log(cards);
+    renderGame();
+  }
 }
 newBtn.addEventListener("click", newCard);
