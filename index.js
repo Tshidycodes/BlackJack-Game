@@ -1,10 +1,8 @@
 ﻿//in Blackjack ace is 1, J = 11, Q = 12, K = 13
-let firstCard = getRandomCard();
-let secondCard = getRandomCard();
-let cards = [firstCard, secondCard]; //cards array - ordered list of items
-let sum = firstCard + secondCard;
+let cards = []; //cards array - ordered list of items
+let sum = 0;
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 
 let message = "";
 let messageEl = document.querySelector("#message-el");
@@ -24,6 +22,12 @@ function getRandomCard() {
   }
 }
 function startGame() {
+  isAlive = true;
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+  cards = [firstCard, secondCard];
+  sum = firstCard + secondCard;
+
   renderGame();
 }
 function renderGame() {
